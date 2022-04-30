@@ -1,32 +1,30 @@
 <!DOCTYPE html>
-<html  lang="en" >
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
-    <style>
-        body {
-            font-size: 1.3em;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css" media="all">
     <title>Matches Results</title>
 </head>
 
 <body ng-app="MatchResults">
 <div ng-controller="MatchUpdate">
     <h1>Match Results</h1>
-    <button  ng-click="getUpdate()">Update Results</button>
-</div>
+    <button ng-click="getUpdate()">Update Results</button>
 
-<div ng-controller="MatchResultsController as match">
-<ul>
-    <li ng-repeat="match in match.results | orderBy:'-matchDate' ">
-        <div> {{match.homeClubName}}{{match.result}}{{match.awayClubName}} </div>
 
-    </li>
-</ul>
+    <div ng-controller="MatchResultsController as match">
+        <ul>
+            <li ng-repeat="match in match.results | orderBy:'-matchDate' ">
+                <div> {{match.homeClubName}}{{match.result}}{{match.awayClubName}}</div>
 
+            </li>
+        </ul>
+
+    </div>
 </div>
 </body>
 
