@@ -14,18 +14,24 @@
 <div ng-controller="MatchUpdate">
     <h1>Match Results</h1>
     <button ng-click="getUpdate()">Update Results</button>
-
-
-    <div ng-controller="MatchResultsController as match">
-        <ul>
-            <li ng-repeat="match in match.results | orderBy:'-matchDate' ">
-                <div> {{match.homeClubName}}{{match.result}}{{match.awayClubName}}</div>
-
-            </li>
-        </ul>
-
-    </div>
 </div>
+
+<div ng-controller="MatchResultsController as match" class="content">
+    <ul>
+        <li>
+            <div> 1</div>
+            <div> 2</div>
+            <div> 3</div>
+        </li>
+    </ul>
+    <ul>
+        <li ng-repeat="match in match.results | orderBy:'-matchDate' ">
+            <div> {{match.homeClubName}}{{match.result}}{{match.awayClubName}}</div>
+
+        </li>
+    </ul>
+</div>
+
 </body>
 
 </html>

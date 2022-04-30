@@ -1,12 +1,17 @@
 @media all {
     body {
         margin: 0;
-        display: flex;
+        text-align: center;
         justify-content: center;
         height: 100vh;
         width: 100vw;
         font-size: 1vmax;
         color: black;
         background-color: white;
+    }
+
+    .content{
+        display: flex;
+        justify-content: center;
     }
 }
