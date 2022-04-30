@@ -11,22 +11,24 @@
 </head>
 
 <body ng-app="MatchResults">
-<div ng-controller="MatchUpdate">
+<div >
     <h1>Match Results</h1>
-    <button ng-click="getUpdate()">Update Results</button>
+
 </div>
 
 <div ng-controller="MatchResultsController as match" class="content">
-    <ul>
-        <li>
-            <div> 1</div>
-            <div> 2</div>
-            <div> 3</div>
+
+    <ul class="list" ng-controller="LeagueList" >
+        <li ng-repeat=" l in getLeagueList()">
+            <button class="leaguesNameButton">{{l.leagueName}}</button>
         </li>
     </ul>
-    <ul>
-        <li ng-repeat="match in match.results | orderBy:'-matchDate' ">
-            <div> {{match.homeClubName}}{{match.result}}{{match.awayClubName}}</div>
+    <ul class="list2">
+        <button ng-controller="MatchUpdate" ng-click="getUpdate()" ng-repeat="match in match.results | limitTo :1" >Update Results Last Update date: {{match.lastUpdate}}</button>
+        <li ng-repeat="match in match.results | orderBy:'-matchDate'" class="li">
+            <div class="a"> {{match.homeClubName}}</div>
+            <div class="b"> {{match.result}}</div>
+            <div class="c"> {{match.awayClubName}}</div>
 
         </li>
     </ul>
