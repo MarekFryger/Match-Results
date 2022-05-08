@@ -1,62 +1,8 @@
-@media all {
-    body {
-        margin: 0;
-        text-align: center;
-        justify-content: center;
-        height: 100vh;
-        width: 100vw;
-        font-size: 1vmax;
-        color: black;
-        background-color: white;
-    }
-
-    .content{
-        margin: 0;
-        padding: 0;
-
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-
-
-    }
-    .list{
-        margin: 0;
-        padding: 5px;
-        list-style: none;
-        flex: 20%;
-        min-width: 200px;
-    }
-    .list2{
-        margin: 0;
-        padding: 5px;
-        list-style: none;
-        flex: 80%;
-        min-width: 250px;
-    }
-    .li{
-        margin: 0;
-        display: flex;
-    }
-    .a{
-        margin: 0;
-        flex: 40%;
-    }
-    .b{
-        margin: 0;
-        flex: 20%;
-    }
-    .c{
-        margin: 0;
-        flex: 40%;
-    }
-    .leaguesNameButton{
-        width: 100%;
-    }
-    @media (max-width: 450px) {
-        .content{
-            flex-direction: column;
-        }
-
-    }
+.leagueList{
+    padding-right: 0;
+    text-align: left;
+    background-color: #31ff69;
+}
+.lista{
+    list-style-type: none;
 }

@@ -6,34 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="style.css" media="all">
     <title>Matches Results</title>
 </head>
 
 <body ng-app="MatchResults">
-<div >
-    <h1>Match Results</h1>
+<divc class="row">
+    <h1 class="text-center"> Match Results</h1>
+
+</divc>
+<div ng-controller="MatchResultsController as match">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="list-group" ng-controller="LeagueList">
+                    <button type="button" class="list-group-item leagueList" ng-repeat=" l in getLeagueList()"
+                            ng-click="cliked()">{{l.leagueName}}
+                    </button>
+                </div>
+            </div>
+
+            <div  class="col-lg-9 ">
+                <button type="button" class="btn-group-lg col-lg-offset-4" ng-controller="MatchUpdate" ng-click="getUpdate()"
+                        ng-repeat="match in match.results | limitTo :1">Update Results Last Update date:
+                    {{match.lastUpdate}}
+                </button>
+            </div>
+            <ul>
+                <li class="list-group col-lg-offset-4 lista"
+                    ng-repeat="match in match.results | orderBy:'-matchDate'">
+
+                        <div class="list-group-item col-lg-4 text-center"> {{match.homeClubName}}</div>
+                        <div class="list-group-item col-lg-1 text-center"> {{match.result}}</div>
+                        <div class="list-group-item col-lg-4 text-center"> {{match.awayClubName}}</div>
+
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div ng-controller="LeagueController as some">
+        <ul>
+            <li ng-repeat="some in some.results |orderBy:'rankInTable'">
+                <h3>{{some.teamName}}</h3>
+            </li>
+        </ul>
+    </div>
 
 </div>
-
-<div ng-controller="MatchResultsController as match" class="content">
-
-    <ul class="list" ng-controller="LeagueList" >
-        <li ng-repeat=" l in getLeagueList()">
-            <button class="leaguesNameButton">{{l.leagueName}}</button>
-        </li>
-    </ul>
-    <ul class="list2">
-        <button ng-controller="MatchUpdate" ng-click="getUpdate()" ng-repeat="match in match.results | limitTo :1" >Update Results Last Update date: {{match.lastUpdate}}</button>
-        <li ng-repeat="match in match.results | orderBy:'-matchDate'" class="li">
-            <div class="a"> {{match.homeClubName}}</div>
-            <div class="b"> {{match.result}}</div>
-            <div class="c"> {{match.awayClubName}}</div>
-
-        </li>
-    </ul>
-</div>
-
 </body>
 
 </html>
